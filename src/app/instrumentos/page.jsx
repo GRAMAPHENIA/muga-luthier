@@ -42,7 +42,7 @@ export default function Buconero() {
           />
           <Link
             href="/instrumentos/buconero"
-            className="absolute bottom-0 right-0 detalles mono-ui inline-flex items-center justify-center text-xs lg:text-sm text-center w-[100px] lg:w-[200px] m-0 px-2 py-1 lg:px-4 lg:py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
+            className="absolute bottom-0 right-0 detalles mono-ui inline-flex items-center justify-center text-xs lg:text-sm text-center w-[130px] lg:w-[200px] m-0 px-2 py-1 lg:px-4 lg:py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
           >
             Abrir Ficha
           </Link>
@@ -65,7 +65,7 @@ export default function Buconero() {
           />
           <Link
             href="/instrumentos/velluto"
-            className="absolute bottom-0 right-0 detalles mono-ui inline-flex items-center justify-center text-xs lg:text-sm text-center w-[100px] lg:w-[200px] m-0 px-2 py-1 lg:px-4 lg:py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
+            className="absolute bottom-0 right-0 detalles mono-ui inline-flex items-center justify-center text-xs lg:text-sm text-center w-[130px] lg:w-[200px] m-0 px-2 py-1 lg:px-4 lg:py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
           >
             Abrir Ficha
           </Link>
@@ -87,7 +87,7 @@ export default function Buconero() {
           />
           <Link
             href="/instrumentos/eira"
-            className="absolute bottom-0 right-0 detalles mono-ui inline-flex items-center justify-center text-xs lg:text-sm text-center w-[100px] lg:w-[200px] m-0 px-2 py-1 lg:px-4 lg:py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
+            className="absolute bottom-0 right-0 detalles mono-ui inline-flex items-center justify-center text-xs lg:text-sm text-center w-[130px] lg:w-[200px] m-0 px-2 py-1 lg:px-4 lg:py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
           >
             Abrir Ficha
           </Link>
