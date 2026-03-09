@@ -5,6 +5,17 @@ import Image from "next/image";
 import Menu from "@/public/menu.svg";
 import NavegacionMenu from "@/components/NavegacionMenu.jsx";
 
+const BLOCKED_SCROLL_KEYS = new Set([
+  " ",
+  "Spacebar",
+  "PageUp",
+  "PageDown",
+  "End",
+  "Home",
+  "ArrowUp",
+  "ArrowDown",
+]);
+
 export default function Modal() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,18 +34,7 @@ export default function Modal() {
         return;
       }
 
-      const blockedKeys = [
-        " ",
-        "Spacebar",
-        "PageUp",
-        "PageDown",
-        "End",
-        "Home",
-        "ArrowUp",
-        "ArrowDown",
-      ];
-
-      if (blockedKeys.includes(event.key)) {
+      if (BLOCKED_SCROLL_KEYS.has(event.key)) {
         event.preventDefault();
       }
     };
@@ -56,7 +56,7 @@ export default function Modal() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          aria-label="Abrir menu de navegacion"
+          aria-label="Abrir menú de navegación"
           className="tile-link w-10 h-10"
         >
           <Image
@@ -79,18 +79,18 @@ export default function Modal() {
         >
           <button
             type="button"
-            aria-label="Cerrar menu de navegacion"
+            aria-label="Cerrar menú de navegación"
             className="absolute inset-0"
             onClick={() => setIsOpen(false)}
           />
           <div className="content-modal relative z-10">
             <header className="modal-menu-header">
               <h2 id="menu-modal-title" className="mono-ui text-xs text-[var(--muted)]">
-                Menu Principal
+                Menú principal
               </h2>
               <button
                 type="button"
-                aria-label="Cerrar menu"
+                aria-label="Cerrar menú"
                 className="mono-ui text-xs text-[var(--muted)] hover:text-[var(--accent)] border border-[var(--border)] px-3 py-2"
                 onClick={() => setIsOpen(false)}
               >

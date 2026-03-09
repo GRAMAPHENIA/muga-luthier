@@ -37,4 +37,9 @@ next-env.d.ts
 
 # local tooling
 .agents/
+.agent/
+.claude/
+.kiro/
+.trae/
+.windsurf/
 skills-lock.json

@@ -1,67 +1,42 @@
-"use client";
-import { useRef } from "react"
-import { AnimatePresence, motion, useInView } from "motion/react";
-
-const getFilter = (v) =>
-  typeof v === "function" ? undefined : v.filter
+const signByDirection = {
+  up: 1,
+  down: -1,
+  left: 1,
+  right: -1,
+};
 
 export function BlurFade({
   children,
   className,
-  variant,
   duration = 0.4,
   delay = 0,
   offset = 6,
   direction = "down",
-  inView = false,
-  inViewMargin = "-50px",
   blur = "6px",
-  ...props
+  inView = true,
+  inViewMargin: _inViewMargin,
+  variant: _variant,
+  style,
+  ...rest
 }) {
-  const ref = useRef(null)
-  const inViewResult = useInView(ref, { once: true, margin: inViewMargin })
-  const isInView = !inView || inViewResult
-  const defaultVariants = {
-    hidden: {
-      [direction === "left" || direction === "right" ? "x" : "y"]:
-        direction === "right" || direction === "down" ? -offset : offset,
-      opacity: 0,
-      filter: `blur(${blur})`,
-    },
-    visible: {
-      [direction === "left" || direction === "right" ? "x" : "y"]: 0,
-      opacity: 1,
-      filter: `blur(0px)`,
-    },
-  }
-  const combinedVariants = variant ?? defaultVariants
-
-  const hiddenFilter = getFilter(combinedVariants.hidden)
-  const visibleFilter = getFilter(combinedVariants.visible)
-
-  const shouldTransitionFilter =
-    hiddenFilter != null &&
-    visibleFilter != null &&
-    hiddenFilter !== visibleFilter
+  const sign = signByDirection[direction] ?? -1;
+  const isHorizontal = direction === "left" || direction === "right";
+  const shouldReveal = Boolean(inView);
 
   return (
-    <AnimatePresence>
-      <motion.div
-        ref={ref}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        exit="hidden"
-        variants={combinedVariants}
-        transition={{
-          delay: 0.04 + delay,
-          duration,
-          ease: "easeOut",
-          ...(shouldTransitionFilter ? { filter: { duration } } : {}),
-        }}
-        className={className}
-        {...props}>
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div
+      className={`${shouldReveal ? "blur-fade-reveal" : ""} ${className ?? ""}`.trim()}
+      style={{
+        "--blur-fade-duration": `${duration}s`,
+        "--blur-fade-delay": `${0.04 + delay}s`,
+        "--blur-fade-offset-x": isHorizontal ? `${sign * offset}px` : "0px",
+        "--blur-fade-offset-y": isHorizontal ? "0px" : `${sign * offset}px`,
+        "--blur-fade-filter": `blur(${blur})`,
+        ...style,
+      }}
+      {...rest}
+    >
+      {children}
+    </div>
   );
 }

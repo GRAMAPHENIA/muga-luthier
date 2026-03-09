@@ -63,7 +63,7 @@ export default function BodyBuconero() {
           </span>
         </Link>
         <Link
-          href="mailto:dicoratolutjier@gmail.com"
+          href="mailto:dicoratoluthier@gmail.com"
           className="tile-link w-full h-full min-h-[64px] md:min-h-[72px] p-0"
           target="_blank"
           rel="noopener noreferrer"
@@ -89,9 +89,9 @@ export default function BodyBuconero() {
       >
         <figure className="relative flex flex-col align-middle justify-between p-0 lg:col-start-1 lg:col-end-3 bg-[var(--panel)] border border-[var(--border)] w-full">
           <PageIntroHeader
-            kicker="Seccion"
+            kicker="Sección"
             title="Contacto"
-            description="Escribe tu consulta y recibe una respuesta para coordinar el siguiente paso."
+            description="Escribí tu consulta y recibí una respuesta para coordinar el siguiente paso."
             className="border-0 bg-transparent p-6 lg:p-10"
           />
         </figure>

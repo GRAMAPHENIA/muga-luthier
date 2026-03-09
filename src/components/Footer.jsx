@@ -9,7 +9,7 @@ const sections = [
     links: [
       { title: "Inicio", url: "/" },
       { title: "Modelos", url: "/#modelos" },
-      { title: "Galeria", url: "/#galeria" },
+      { title: "Galería", url: "/#galeria" },
       { title: "Contacto", url: "/#contacto" },
     ],
   },
@@ -44,7 +44,7 @@ const sections = [
 const Footer = () => {
   return (
     <>
-      <footer className="animate grid grid-cols-1 md:grid-cols-5 my-2 seamless-grid seamless-grid-no-top">
+      <footer className="animate grid grid-cols-1 md:grid-cols-5 mb-2 seamless-grid seamless-grid-no-top">
         <div className="md:col-span-2 bg-[var(--panel)] px-6 py-8 lg:px-8 lg:py-10 text-left md:min-h-[220px] flex flex-col justify-between">
           <Image
             className="mx-0"
@@ -63,19 +63,19 @@ const Footer = () => {
               className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full sm:w-[220px] m-0 px-4 py-3 border border-[var(--border)] hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
               href="/#contactos"
             >
-              Escribir Consulta
+              Escribí tu consulta
             </Link>
           </div>
         </div>
-        {sections.map((section, index) => (
+        {sections.map((section) => (
           <div
-            key={index}
+            key={section.title}
             className="md:col-span-1 bg-[var(--panel)] px-6 py-8 lg:px-8 lg:py-10 text-left md:min-h-[220px]"
           >
             <h3 className="mono-ui mb-5 text-xs text-[var(--muted)]">{section.title}</h3>
             <ul className="space-y-1">
-              {section.links.map((link, linkIndex) => (
-                <li key={linkIndex}>
+              {section.links.map((link) => (
+                <li key={link.url}>
                   <Link
                     className="text-[var(--muted)] hover:text-[var(--accent)] font-light"
                     href={link.url}

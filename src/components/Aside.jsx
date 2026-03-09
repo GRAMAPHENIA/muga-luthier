@@ -8,11 +8,11 @@ export default function Aside() {
       <BlurFade inView delay={0.08} offset={10}>
         <figure>
           <Image
-            width={380}
-            height={270}
+            width={760}
+            height={540}
             src={croquiBuconero}
             alt="Croquis de guitarra buconero"
-            className="w-full h-auto max-w-[280px] max-h-[200px] md:max-w-[340px] md:max-h-[240px] lg:max-w-[380px] lg:max-h-[270px] rotate-90"
+            className="mx-auto my-auto p-6 md:p-8 w-full h-auto object-contain max-w-[320px] max-h-[220px] md:max-w-[520px] md:max-h-[360px] lg:max-w-[760px] lg:max-h-[540px] rotate-90"
           />
         </figure>
       </BlurFade>

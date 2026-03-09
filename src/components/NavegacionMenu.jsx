@@ -6,7 +6,7 @@ import NavLink from "@/components/NavLink";
 export default function NavegacionMenu() {
   return (
     <section className="grid-cols-1 w-full text-center">
-      <nav aria-label="Menu principal">
+      <nav aria-label="Menú principal">
         <div className="modal-menu-brand">
           <Image
             className="mx-auto"
@@ -28,7 +28,7 @@ export default function NavegacionMenu() {
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Galeria"
+              text="Galería"
               href="/galeria"
             />
           </li>

@@ -7,11 +7,11 @@ export default function Testimonios({ testimonio }) {
       <div className="seamless-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {testimonio.map((testimonio, index) => (
           <BlurFade
-            key={index}
+            key={testimonio.img || `${testimonio.author}-${index}`}
             inView
             delay={Math.min(index * 0.05, 0.24)}
             offset={10}
-            className="h-full bg-[var(--panel)]"
+            className="h-full bg-[var(--panel)] content-auto"
           >
             <MagicCard
               className="h-full border-0"

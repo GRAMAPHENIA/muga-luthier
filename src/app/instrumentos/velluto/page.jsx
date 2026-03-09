@@ -3,80 +3,81 @@ import PageIntroHeader from "@/components/PageIntroHeader";
 import CroquisvellutoVert from "@/public/croquis/guitarras-numeracion/velluto-vert.svg";
 import CroquisvellutoHorz from "@/public/croquis/guitarras-numeracion/velluto-horz.svg";
 import BuconeroCuerpo from "@/public/guitarras/velluto.webp";
-import Gotoh from "@/public/svgs/marcas/gotoh.svg";
-import Hosco from "@/public/svgs/marcas/hosco.svg";
-import Diliberto from "@/public/svgs/marcas/diliberto.svg";
-import Wilkinson from "@/public/svgs/marcas/wilkinson.svg";
 
 import HeaderInstrumentos from "@/app/instrumentos/components/HeaderInstrumentos";
 import ConectorMarcasVelluto from "@/app/instrumentos/components/ConectorMarcasVelluto";
+import { createPageMetadata } from "@/lib/seo";
 
-export const metadata = {
+export const metadata = createPageMetadata({
   title: "Modelo Velluto",
-};
+  description:
+    "Ficha técnica del modelo Velluto con especificaciones de componentes, maderas y terminaciones.",
+  path: "/instrumentos/velluto",
+  keywords: ["modelo velluto", "ficha técnica guitarra", "instrumento de autor"],
+});
+
+const SPECIFICATIONS = [
+  {
+    descripcion: "Terminación Tahitian Moral Mate de Twang Factory.",
+  },
+  {
+    descripcion: "Cuerpo de Okume.",
+  },
+  {
+    descripcion: "Mango de Jequetiva.",
+  },
+  {
+    descripcion: "Diapasón de guayubira.",
+  },
+  {
+    descripcion: "Trastes Sintoms LTD 2.2 M",
+  },
+  {
+    descripcion: "Clavijas Gotoh Vintage 3+3",
+  },
+  {
+    descripcion: "Tensor de doble acción termosellado.",
+  },
+  {
+    descripcion: "Cejuela de grafito",
+  },
+  {
+    descripcion: "Dots de Madreperla",
+  },
+  {
+    descripcion: "Micrófonos Diliberto.",
+  },
+  {
+    descripcion: "Electrónica Gotoh/Hosco.",
+  },
+  {
+    descripcion: "Perillas metálicas con detalle en nácar.",
+  },
+  {
+    descripcion: "Puente Tune-o-Matic Gotoh.",
+  },
+];
 
 export default function velluto() {
-  const lista = [
-    {
-      descripcion: "Terminacion Tahitian Moral Mate de Twang Factory",
-    },
-    {
-      descripcion: "Cuerpo de Okume.",
-    },
-    {
-      descripcion: "Mango de Jequetiva.",
-    },
-    {
-      descripcion: "Diapason de Guajubira.",
-    },
-    {
-      descripcion: "Trastes Sintoms LTD 2.2 M",
-    },
-    {
-      descripcion: "Clavijas Gotoh Vintage 3+3",
-    },
-    {
-      descripcion: "Tensor doble acción termosellado.",
-    },
-    {
-      descripcion: "Cejuela de grafito",
-    },
-    {
-      descripcion: "Dots de Madreperla",
-    },
-    {
-      descripcion: "Microfonos Diliberto",
-    },
-    {
-      descripcion: "Electrónica Gotoh/Hosco",
-    },
-    {
-      descripcion: "Perillas metalicas con detelle en nacar",
-    },
-    {
-      descripcion: "Puente Tune-o-Matic Gotoh",
-    },
-  ];
-
   return (
     <>
       <section className="grid my-2 grid-cols-4 row-span-4 lg:grid lg:grid-cols-8 seamless-grid">
         <h1 className="sr-only">Modelo Velluto</h1>
         <PageIntroHeader
           title="Modelo Velluto"
-          description="Consulta especificaciones, marcas asociadas y vista detallada del modelo."
+          description="Consultá especificaciones, marcas asociadas y vista detallada del modelo."
           kicker="Ficha"
         />
         <figure className="relative bg-[var(--panel)] border border-[var(--border)] col-span-8 p-10 lg:p-10">
           <Image
             src={CroquisvellutoVert}
             alt="croquis velluto numerado"
-            className="mx-auto h-auto w-full max-w-[320px] max-h-[62vh] sm:max-w-[380px] sm:max-h-[66vh] lg:hidden"
+            className="mx-auto h-auto w-full p-4 md:p-6 max-w-[320px] max-h-[62vh] sm:max-w-[380px] sm:max-h-[66vh] lg:hidden"
           />
           <Image
             src={CroquisvellutoHorz}
             alt="croquis velluto numerado"
-            className="hidden lg:block"
+            className="hidden lg:block p-6"
           />
         </figure>
         <section className="animate col-span-8">
@@ -88,8 +89,8 @@ export default function velluto() {
             <p className="mono-ui text-xs text-[var(--muted)]">Especificaciones</p>
           </section>
           <ol className="space-y-3 text-sm lg:text-base px-10 py-8">
-            {lista.map((item, index) => (
-              <li key={index}>
+            {SPECIFICATIONS.map((item, index) => (
+              <li key={item.descripcion}>
                 <p className="text-[var(--text-light)] leading-relaxed">
                   <span className="text-[var(--accent)] mr-3 mono-ui">{index + 1}.</span>
                   {item.descripcion}
@@ -99,13 +100,13 @@ export default function velluto() {
           </ol>
         </figure>
 
-        <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-8 lg:col-span-3 p-10 lg:p-10">
+        <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-8 lg:col-span-3 p-6 lg:p-8 flex items-center justify-center">
           <Image
             src={BuconeroCuerpo}
             alt="croquis velluto numerado"
             width={150}
             height={150}
-            className="mx-auto h-auto w-full max-w-[250px] max-h-[260px] sm:max-w-[280px] sm:max-h-[300px] lg:max-w-[320px] lg:max-h-[360px] lg:hover:scale-110 lg:transition-transform lg:duration-200"
+            className="mx-auto h-auto w-full object-contain max-w-[220px] max-h-[240px] sm:max-w-[250px] sm:max-h-[280px] lg:max-w-[280px] lg:max-h-[320px]"
           />
         </figure>
       </section>

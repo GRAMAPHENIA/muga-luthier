@@ -14,9 +14,9 @@ export default function Instrumentos() {
     >
       <figure className="relative flex flex-col align-middle justify-between p-0 lg:col-start-2 lg:col-end-5 bg-[var(--panel)] border border-[var(--border)] w-full lg:hidden">
         <PageIntroHeader
-          kicker="Seccion"
+          kicker="Sección"
           title="Instrumentos"
-          description="Explora modelos para musica clasica y contemporanea, con identidad propia en cada pieza."
+          description="Explorá modelos para música clásica y contemporánea, con identidad propia en cada pieza."
           className="border-0 bg-transparent p-6 lg:p-10"
         />
 
@@ -51,9 +51,9 @@ export default function Instrumentos() {
       </aside>
       <figure className="relative lg:flex flex-col align-middle justify-between p-0 lg:col-start-4 lg:col-end-6 bg-[var(--panel)] border border-[var(--border)] w-full hidden lg:min-h-[320px]">
         <PageIntroHeader
-          kicker="Seccion"
+          kicker="Sección"
           title="Instrumentos"
-          description="Explora modelos para musica clasica y contemporanea, con identidad propia en cada pieza."
+          description="Explorá modelos para música clásica y contemporánea, con identidad propia en cada pieza."
           className="border-0 bg-transparent p-6 lg:p-10"
         />
 

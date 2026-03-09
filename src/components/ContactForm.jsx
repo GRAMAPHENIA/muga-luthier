@@ -1,12 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const FORM_FIELDS = ["name", "email", "phone", "message"];
+const FORM_FIELDS_SET = new Set(FORM_FIELDS);
+const SUBMIT_RESET_DELAY = 3000;
 
 const ContactForm = () => {
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
+  const hideMessageTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    return () => {
+      if (hideMessageTimeoutRef.current) {
+        clearTimeout(hideMessageTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -31,19 +44,19 @@ const ContactForm = () => {
 
       errors.forEach((error) => {
         const field = error?.field || error?.path || error?.name;
-        if (typeof field === "string" && ["name", "email", "phone", "message"].includes(field)) {
+        if (typeof field === "string" && FORM_FIELDS_SET.has(field)) {
           nextFieldErrors[field] = error.message;
         }
       });
 
       setFieldErrors(nextFieldErrors);
 
-      const fallbackMessage = "No se pudo enviar. Revisa los campos marcados e intenta de nuevo.";
+      const fallbackMessage = "No se pudo enviar. Revisá los campos marcados e intentá de nuevo.";
       const firstApiMessage = errors[0]?.message;
       setMessage(firstApiMessage ? `${fallbackMessage} ${firstApiMessage}` : fallbackMessage);
       setShowMessage(true);
 
-      const firstErrorField = ["name", "email", "phone", "message"].find((field) => nextFieldErrors[field]);
+      const firstErrorField = FORM_FIELDS.find((field) => nextFieldErrors[field]);
       if (firstErrorField) {
         const fieldElement = form.elements.namedItem(firstErrorField);
         if (fieldElement && "focus" in fieldElement) {
@@ -55,9 +68,14 @@ const ContactForm = () => {
       event.target.reset();
       setFieldErrors({});
       setShowMessage(true);
-      setTimeout(() => {
+
+      if (hideMessageTimeoutRef.current) {
+        clearTimeout(hideMessageTimeoutRef.current);
+      }
+
+      hideMessageTimeoutRef.current = setTimeout(() => {
         setShowMessage(false);
-      }, 3000);
+      }, SUBMIT_RESET_DELAY);
     }
     setIsSubmitting(false);
   };
@@ -191,7 +209,7 @@ const ContactForm = () => {
           disabled={isSubmitting}
           className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full sm:w-[240px] m-0 px-4 py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
         >
-          {isSubmitting ? "Enviando…" : "Enviar Consulta"}
+          {isSubmitting ? "Enviando…" : "Enviar consulta"}
         </button>
       </footer>
 

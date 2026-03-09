@@ -1,9 +1,6 @@
-import React from "react";
-
 import { IBM_Plex_Mono, Manrope, Spectral } from "next/font/google";
 import "./globals.css";
-
-import { Suspense } from "react";
+import { absoluteUrl, siteConfig } from "@/lib/seo";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -23,8 +20,50 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata = {
-  title: "Di corato Luthier",
-  description: "Creado por Concepto Hexágono",
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  applicationName: siteConfig.name,
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: siteConfig.locale,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [
+      {
+        url: absoluteUrl(siteConfig.defaultOgImage),
+        width: 512,
+        height: 512,
+        alt: siteConfig.name,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [absoluteUrl(siteConfig.defaultOgImage)],
+  },
+  category: "Luthería",
 };
 
 export const viewport = {
@@ -38,9 +77,7 @@ export default function RootLayout({ children }) {
         <a href="#main-content" className="skip-link">
           Ir al contenido principal
         </a>
-        <Suspense>
-          <main id="main-content">{children}</main>
-        </Suspense>
+        <main id="main-content">{children}</main>
       </body>
     </html>
   );

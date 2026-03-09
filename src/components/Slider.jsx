@@ -1,18 +1,27 @@
+"use client";
+
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
 const Slider = ({ images, modelTitle }) => {
   const [currentImage, setCurrentImage] = useState(0);
+  const totalImages = images?.length ?? 0;
 
   const handleImageChange = useCallback(
     (newIndex) => {
-      const totalImages = images.length;
+      if (totalImages === 0) {
+        return;
+      }
       setCurrentImage((newIndex + totalImages) % totalImages);
     },
-    [images]
+    [totalImages]
   );
 
   useEffect(() => {
+    if (totalImages === 0) {
+      return undefined;
+    }
+
     if (typeof window !== "undefined") {
       const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (prefersReducedMotion) {
@@ -21,16 +30,16 @@ const Slider = ({ images, modelTitle }) => {
     }
 
     const interval = setInterval(() => {
-      handleImageChange(currentImage + 1);
+      setCurrentImage((prev) => (prev + 1) % totalImages);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentImage, handleImageChange]);
+  }, [totalImages]);
 
-  if (!images || images.length === 0) {
+  if (totalImages === 0) {
     return (
       <div className="p-8 text-center text-[var(--muted)]">
-        Esta galeria no tiene imagenes disponibles.
+        Esta galería no tiene imágenes disponibles.
       </div>
     );
   }
@@ -72,9 +81,9 @@ const Slider = ({ images, modelTitle }) => {
       </p> */}
 
       <div className="flex justify-center items-center mt-20 space-x-3">
-        {images.map((_, index) => (
+        {images.map((image, index) => (
           <button
-            key={index}
+            key={image.url}
               type="button"
               aria-label={`Ir a la imagen ${index + 1}`}
               aria-current={index === currentImage ? "true" : undefined}

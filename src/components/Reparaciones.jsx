@@ -12,9 +12,9 @@ export default function Reparaciones() {
       <section id="reparaciones" className="animate w-full grid lg:grid-cols-5 my-2 seamless-grid seamless-grid-no-top">
         <figure className="relative flex flex-col align-middle justify-between p-0 lg:col-start-1 lg:col-end-3 bg-[var(--panel)] border border-[var(--border)] w-full lg:min-h-[320px]">
           <PageIntroHeader
-            kicker="Seccion"
+            kicker="Sección"
             title="Reparaciones"
-            description="Agenda ajustes, calibraciones y restauraciones para recuperar sonido, tacto y estabilidad."
+            description="Agendá ajustes, calibraciones y restauraciones para recuperar sonido, tacto y estabilidad."
             className="border-0 bg-transparent p-6 lg:p-10"
           />
           <section className="flex justify-start">

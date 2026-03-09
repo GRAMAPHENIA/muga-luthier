@@ -3,7 +3,7 @@ import { BlurFade } from "@/components/ui/blur-fade";
 export default function PageIntroHeader({
   title,
   description,
-  kicker = "Coleccion",
+  kicker = "Colección",
   className = "",
 }) {
   return (

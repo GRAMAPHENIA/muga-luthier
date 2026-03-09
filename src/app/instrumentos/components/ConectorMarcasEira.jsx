@@ -1,28 +1,32 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Diliberto from "@/public/svgs/marcas/diliberto.svg";
+import Gotoh from "@/public/svgs/marcas/gotoh.svg";
+import Hosco from "@/public/svgs/marcas/hosco.svg";
+import DSPickups from "@/public/svgs/marcas/dspickups.svg";
 
 const marcas = [
   {
-    src: require("@/public/svgs/marcas/diliberto.svg"),
+    src: Diliberto,
     alt: "Logo de marca Diliberto",
     id: "diliberto",
     href: "https://www.dilibertopickups.com/",
   },
   {
-    src: require("@/public/svgs/marcas/gotoh.svg"),
+    src: Gotoh,
     alt: "Logo de marca Gotoh",
     id: "gotoh",
     href: "https://g-gotoh.com/?lang=en",
   },
   {
-    src: require("@/public/svgs/marcas/hosco.svg"),
+    src: Hosco,
     alt: "Logo de marca Hosco",
     id: "hosco",
     href: "/",
   },
   {
-    src: require("@/public/svgs/marcas/dspickups.svg"),
+    src: DSPickups,
     alt: "Logo de marca DS Pickups",
     id: "ds",
     href: "https://www.dspickups.com.ar/",

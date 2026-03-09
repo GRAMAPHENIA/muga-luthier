@@ -1,6 +1,7 @@
 {
   "name": "luthier",
-  "version": "0.1.0",
+  "version": "2.0.0",
+  "packageManager": "pnpm@9.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,9 +12,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "framer-motion": "^12.35.0",
     "lucide-react": "^0.577.0",
-    "motion": "^12.35.0",
     "next": "14.0.1",
     "react": "^18",
     "react-dom": "^18",
