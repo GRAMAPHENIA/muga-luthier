@@ -94,7 +94,7 @@ const Footer = () => {
         v2.0.0 - 2026 -{" "}
         <Link
           className="text-[var(--text)] hover:text-[var(--accent)]"
-          href="https://muga.dev"
+          href="https://www.muga.dev"
           target="_blank"
           rel="noopener noreferrer"
         >
