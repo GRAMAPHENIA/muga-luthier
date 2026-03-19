@@ -111,7 +111,7 @@ const ContactForm = () => {
           aria-invalid={Boolean(fieldErrors.name)}
           aria-describedby={fieldErrors.name ? "name-error" : undefined}
           autoComplete="name"
-          placeholder="Ejemplo: Esteban Di Corato…"
+          placeholder="Tu nombre"
           className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base"
           required
         />
@@ -138,7 +138,7 @@ const ContactForm = () => {
             aria-describedby={fieldErrors.email ? "email-error" : undefined}
             autoComplete="email"
             spellCheck={false}
-            placeholder="ejemplo@correo.com…"
+            placeholder="tuemail@dominio.com"
             className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base"
             required
           />
@@ -164,7 +164,7 @@ const ContactForm = () => {
             aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
             autoComplete="tel"
             inputMode="tel"
-            placeholder="+54 11 1234 5678…"
+            placeholder="Tu telefono (opcional)"
             className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base"
           />
           {fieldErrors.phone && (
@@ -188,7 +188,7 @@ const ContactForm = () => {
           aria-invalid={Boolean(fieldErrors.message)}
           aria-describedby={fieldErrors.message ? "message-error" : undefined}
           autoComplete="off"
-          placeholder="Conta brevemente tu consulta…"
+          placeholder="Contanos brevemente tu consulta"
           className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base min-h-[140px]"
           rows="5"
           maxLength="300"

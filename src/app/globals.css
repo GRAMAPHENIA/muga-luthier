@@ -467,21 +467,40 @@ section[class*="grid"] > div {
 }
 
 .magic-card-lite {
+  position: relative;
+  isolation: isolate;
   border: 1px solid var(--border);
   background: var(--panel);
+}
+
+.magic-card-lite-content {
+  position: relative;
+  z-index: 3;
 }
 
 .magic-card-lite-overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
   opacity: 0;
-  background: radial-gradient(circle at center, var(--magic-card-overlay, #262626), transparent 72%);
-  transition: opacity 220ms ease;
+  background: radial-gradient(
+    circle var(--magic-card-size, 180px) at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--magic-card-from, #00ffe1) 0%,
+    var(--magic-card-to, var(--magic-card-overlay, #262626)) 42%,
+    rgba(0, 255, 225, 0.12) 64%,
+    transparent 88%
+  );
+  mix-blend-mode: screen;
+  filter: blur(44px) saturate(104%);
+  transform: scale(1.04);
+  transition: opacity 260ms ease, filter 260ms ease;
 }
 
+.magic-card-lite[data-active="true"] .magic-card-lite-overlay,
 .magic-card-lite:hover .magic-card-lite-overlay {
-  opacity: var(--magic-card-overlay-opacity, 0.8);
+  opacity: calc(var(--magic-card-overlay-opacity, 0.8) * 0.56);
+  filter: blur(48px) saturate(102%);
 }
 
 .content-auto {
