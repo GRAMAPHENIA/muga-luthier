@@ -3,9 +3,29 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 
-const Slider = ({ images, modelTitle }) => {
+const copy = {
+  es: {
+    empty: "Esta galeria no tiene imagenes disponibles.",
+    previous: "Imagen anterior",
+    next: "Imagen siguiente",
+    goTo: "Ir a la imagen",
+    imageOf: "imagen",
+    instrument: "Instrumento",
+  },
+  en: {
+    empty: "This gallery has no images available.",
+    previous: "Previous image",
+    next: "Next image",
+    goTo: "Go to image",
+    imageOf: "image",
+    instrument: "Instrument",
+  },
+};
+
+const Slider = ({ images, modelTitle, locale = "es" }) => {
   const [currentImage, setCurrentImage] = useState(0);
   const totalImages = images?.length ?? 0;
+  const t = copy[locale] || copy.es;
 
   const handleImageChange = useCallback(
     (newIndex) => {
@@ -38,8 +58,8 @@ const Slider = ({ images, modelTitle }) => {
 
   if (totalImages === 0) {
     return (
-      <div className="p-8 text-center text-[var(--muted)]">
-        Esta galería no tiene imágenes disponibles.
+        <div className="p-8 text-center text-[var(--muted)]">
+        {t.empty}
       </div>
     );
   }
@@ -52,14 +72,14 @@ const Slider = ({ images, modelTitle }) => {
           src={images[currentImage].url}
           alt={
             images[currentImage].title ||
-            `${modelTitle || "Instrumento"} - imagen ${currentImage + 1}`
+            `${modelTitle || t.instrument} - ${t.imageOf} ${currentImage + 1}`
           }
           fill
         />
         <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center">
           <button
             type="button"
-            aria-label="Imagen anterior"
+            aria-label={t.previous}
             className="font-semibold text-[var(--text)] text-4xl absolute left-3 lg:left-10 hover:text-[var(--accent)]"
             onClick={() => handleImageChange(currentImage - 1)}
           >
@@ -67,7 +87,7 @@ const Slider = ({ images, modelTitle }) => {
           </button>
           <button
             type="button"
-            aria-label="Imagen siguiente"
+            aria-label={t.next}
             className="font-semibold text-[var(--text)] text-4xl absolute right-3 lg:right-10 hover:text-[var(--accent)]"
             onClick={() => handleImageChange(currentImage + 1)}
           >
@@ -85,7 +105,7 @@ const Slider = ({ images, modelTitle }) => {
           <button
             key={image.url}
               type="button"
-              aria-label={`Ir a la imagen ${index + 1}`}
+              aria-label={`${t.goTo} ${index + 1}`}
               aria-current={index === currentImage ? "true" : undefined}
               onClick={() => handleImageChange(index)}
               className={`h-3 w-3 rounded-full ${

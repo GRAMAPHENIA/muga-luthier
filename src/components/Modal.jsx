@@ -16,8 +16,24 @@ const BLOCKED_SCROLL_KEYS = new Set([
   "ArrowDown",
 ]);
 
-export default function Modal() {
+const copy = {
+  es: {
+    openNav: "Abrir menu de navegacion",
+    closeNav: "Cerrar menu de navegacion",
+    title: "Menu principal",
+    close: "Cerrar",
+  },
+  en: {
+    openNav: "Open navigation menu",
+    closeNav: "Close navigation menu",
+    title: "Main menu",
+    close: "Close",
+  },
+};
+
+export default function Modal({ locale = "es" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const t = copy[locale] || copy.es;
 
   useEffect(() => {
     if (!isOpen) {
@@ -56,7 +72,7 @@ export default function Modal() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          aria-label="Abrir menú de navegación"
+          aria-label={t.openNav}
           className="tile-link w-10 h-10"
         >
           <Image
@@ -79,25 +95,25 @@ export default function Modal() {
         >
           <button
             type="button"
-            aria-label="Cerrar menú de navegación"
+            aria-label={t.closeNav}
             className="absolute inset-0"
             onClick={() => setIsOpen(false)}
           />
           <div className="content-modal relative z-10">
             <header className="modal-menu-header">
               <h2 id="menu-modal-title" className="mono-ui text-xs text-[var(--muted)]">
-                Menú principal
+                {t.title}
               </h2>
               <button
                 type="button"
-                aria-label="Cerrar menú"
+                aria-label={t.close}
                 className="mono-ui text-xs text-[var(--muted)] hover:text-[var(--accent)] border border-[var(--border)] px-3 py-2"
                 onClick={() => setIsOpen(false)}
               >
-                Cerrar
+                {t.close}
               </button>
             </header>
-            <NavegacionMenu />
+            <NavegacionMenu locale={locale} />
           </div>
         </div>
       )}

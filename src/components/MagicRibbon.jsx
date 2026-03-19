@@ -1,17 +1,31 @@
 import { Marquee } from "@/components/ui/marquee";
 
-const tags = [
-  "Luthieria Artesanal",
-  "Construcciones A Medida",
-  "Calibracion Profesional",
-  "Maderas Recuperadas",
-  "Diseño De Autor",
-  "Reparaciones",
-  "Setups Personalizados",
-  "Hecho En Buenos Aires",
-];
+const tagsByLocale = {
+  es: [
+    "Luthieria Artesanal",
+    "Construcciones A Medida",
+    "Calibracion Profesional",
+    "Maderas Recuperadas",
+    "Diseno De Autor",
+    "Reparaciones",
+    "Setups Personalizados",
+    "Hecho En Buenos Aires",
+  ],
+  en: [
+    "Handcrafted Lutherie",
+    "Custom Builds",
+    "Professional Setup",
+    "Reclaimed Woods",
+    "Author Design",
+    "Repairs",
+    "Custom Setups",
+    "Made In Buenos Aires",
+  ],
+};
 
-export default function MagicRibbon() {
+export default function MagicRibbon({ locale = "es" }) {
+  const tags = tagsByLocale[locale] || tagsByLocale.es;
+
   return (
     <section className="grid my-2 seamless-grid seamless-grid-no-top">
       <div className="relative overflow-hidden bg-[var(--panel)] py-3">

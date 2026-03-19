@@ -2,11 +2,35 @@ import Image from "next/image";
 import Logo from "@/public/dicorato-logo-solo-apellido.svg";
 
 import NavLink from "@/components/NavLink";
+import { localizeHref } from "@/lib/i18n";
 
-export default function NavegacionMenu() {
+const copy = {
+  es: {
+    aria: "Menu principal",
+    home: "Inicio",
+    gallery: "Galeria",
+    instruments: "Instrumentos",
+    repairs: "Reparaciones",
+    about: "Acerca de",
+    workshop: "Taller",
+  },
+  en: {
+    aria: "Main menu",
+    home: "Home",
+    gallery: "Gallery",
+    instruments: "Instruments",
+    repairs: "Repairs",
+    about: "About",
+    workshop: "Workshop",
+  },
+};
+
+export default function NavegacionMenu({ locale = "es" }) {
+  const t = copy[locale] || copy.es;
+
   return (
     <section className="grid-cols-1 w-full text-center">
-      <nav aria-label="Menú principal">
+      <nav aria-label={t.aria}>
         <div className="modal-menu-brand">
           <Image
             className="mx-auto"
@@ -21,43 +45,43 @@ export default function NavegacionMenu() {
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Inicio"
-              href="/"
+              text={t.home}
+              href={localizeHref("/", locale)}
             />
           </li>
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Galería"
-              href="/galeria"
+              text={t.gallery}
+              href={localizeHref("/galeria", locale)}
             />
           </li>
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Instrumentos"
-              href="/instrumentos"
+              text={t.instruments}
+              href={localizeHref("/instrumentos", locale)}
             />
           </li>
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Reparaciones"
-              href="/reparaciones"
+              text={t.repairs}
+              href={localizeHref("/reparaciones", locale)}
             />
           </li>
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Acerca de"
-              href="/acerca-de"
+              text={t.about}
+              href={localizeHref("/acerca-de", locale)}
             />
           </li>
           <li className="modal-menu-item">
             <NavLink
               activeClasses="flex justify-center text-[var(--accent)] px-4 py-2 bg-[var(--panel-strong)] border border-[var(--accent-soft)]"
-              text="Taller"
-              href="/taller"
+              text={t.workshop}
+              href={localizeHref("/taller", locale)}
             />
           </li>
         </ul>

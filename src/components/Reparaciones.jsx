@@ -3,26 +3,46 @@ import Link from "next/link";
 import PageIntroHeader from "@/components/PageIntroHeader";
 import { MagicCard } from "@/components/ui/magic-card";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { localizeHref } from "@/lib/i18n";
 
 import LogoApellido from "/public/croquis/herramientas.svg";
 
-export default function Reparaciones() { 
+const copy = {
+  es: {
+    section: "Seccion",
+    title: "Reparaciones",
+    description:
+      "Agenda ajustes, calibraciones y restauraciones para recuperar sonido, tacto y estabilidad.",
+    cta: "Ver Servicios",
+  },
+  en: {
+    section: "Section",
+    title: "Repairs",
+    description:
+      "Book adjustments, setups, and restorations to recover tone, feel, and tuning stability.",
+    cta: "View Services",
+  },
+};
+
+export default function Reparaciones({ locale = "es" }) {
+  const t = copy[locale] || copy.es;
+
   return (
     <>
       <section id="reparaciones" className="animate w-full grid lg:grid-cols-5 my-2 seamless-grid seamless-grid-no-top">
         <figure className="relative flex flex-col align-middle justify-between p-0 lg:col-start-1 lg:col-end-3 bg-[var(--panel)] border border-[var(--border)] w-full lg:min-h-[320px]">
           <PageIntroHeader
-            kicker="Sección"
-            title="Reparaciones"
-            description="Agendá ajustes, calibraciones y restauraciones para recuperar sonido, tacto y estabilidad."
+            kicker={t.section}
+            title={t.title}
+            description={t.description}
             className="border-0 bg-transparent p-6 lg:p-10"
           />
           <section className="flex justify-start">
             <Link
               className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full max-w-[220px] m-0 px-4 py-3 border border-[var(--border)] border-l-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
-              href="/reparaciones"
+              href={localizeHref("/reparaciones", locale)}
             >
-              Ver Servicios
+              {t.cta}
             </Link>
           </section>
         </figure>

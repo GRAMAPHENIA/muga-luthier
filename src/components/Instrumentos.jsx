@@ -3,10 +3,30 @@ import Image from "next/image";
 import PageIntroHeader from "@/components/PageIntroHeader";
 import { MagicCard } from "@/components/ui/magic-card";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { localizeHref } from "@/lib/i18n";
 
 import Eira from "/public/croquis/svgs/eira.svg";
 
-export default function Instrumentos() {
+const copy = {
+  es: {
+    section: "Seccion",
+    title: "Instrumentos",
+    description:
+      "Explora modelos para musica clasica y contemporanea, con identidad propia en cada pieza.",
+    cta: "Ver Modelos",
+  },
+  en: {
+    section: "Section",
+    title: "Instruments",
+    description:
+      "Explore models for classical and contemporary music, each with a distinct identity.",
+    cta: "View Models",
+  },
+};
+
+export default function Instrumentos({ locale = "es" }) {
+  const t = copy[locale] || copy.es;
+
   return (
     <section
       id="modelos"
@@ -14,18 +34,18 @@ export default function Instrumentos() {
     >
       <figure className="relative flex flex-col align-middle justify-between p-0 lg:col-start-2 lg:col-end-5 bg-[var(--panel)] border border-[var(--border)] w-full lg:hidden">
         <PageIntroHeader
-          kicker="Sección"
-          title="Instrumentos"
-          description="Explorá modelos para música clásica y contemporánea, con identidad propia en cada pieza."
+          kicker={t.section}
+          title={t.title}
+          description={t.description}
           className="border-0 bg-transparent p-6 lg:p-10"
         />
 
         <section className="flex justify-start">
           <Link
             className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full max-w-[220px] m-0 px-4 py-3 border border-[var(--border)] border-l-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
-            href="/instrumentos"
+            href={localizeHref("/instrumentos", locale)}
           >
-            Ver Modelos
+            {t.cta}
           </Link>
         </section>
       </figure>
@@ -51,18 +71,18 @@ export default function Instrumentos() {
       </aside>
       <figure className="relative lg:flex flex-col align-middle justify-between p-0 lg:col-start-4 lg:col-end-6 bg-[var(--panel)] border border-[var(--border)] w-full hidden lg:min-h-[320px]">
         <PageIntroHeader
-          kicker="Sección"
-          title="Instrumentos"
-          description="Explorá modelos para música clásica y contemporánea, con identidad propia en cada pieza."
+          kicker={t.section}
+          title={t.title}
+          description={t.description}
           className="border-0 bg-transparent p-6 lg:p-10"
         />
 
         <section className="flex justify-start">
           <Link
             className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full max-w-[220px] m-0 px-4 py-3 border border-[var(--border)] border-l-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
-            href="/instrumentos"
+            href={localizeHref("/instrumentos", locale)}
           >
-            Ver Modelos
+            {t.cta}
           </Link>
         </section>
       </figure>

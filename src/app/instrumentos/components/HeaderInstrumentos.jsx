@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { localizeHref } from "@/lib/i18n";
 
 import BuconeroTipografia from "@/public/instrumentos/buconero.svg";
 import VellutoTipografia from "@/public/instrumentos/velluto.svg";
@@ -30,7 +31,7 @@ const instrumentos = [
   },
 ];
 
-const HeaderInstrumentos = () => {
+const HeaderInstrumentos = ({ locale = "es" }) => {
   return (
     <>
       <section className="grid grid-cols-3 seamless-grid">
@@ -39,10 +40,10 @@ const HeaderInstrumentos = () => {
             key={instrumento.nombre}
             className="flex justify-center align-middle col-span-1 bg-[var(--panel)] border border-[var(--border)] hover:bg-[var(--panel-strong)]"
           >
-            <Link
-              className="flex justify-center align-middle w-full"
-              href={instrumento.href}
-            >
+              <Link
+                className="flex justify-center align-middle w-full"
+                href={localizeHref(instrumento.href, locale)}
+              >
               <Image
                 src={instrumento.imagen}
                 alt={`Fotografía de una guitarra, modelo ${instrumento.nombre}. Diseñada y fabricada por Esteban M. Di corato.`}

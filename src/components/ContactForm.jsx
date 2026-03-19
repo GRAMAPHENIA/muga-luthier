@@ -6,12 +6,48 @@ const FORM_FIELDS = ["name", "email", "phone", "message"];
 const FORM_FIELDS_SET = new Set(FORM_FIELDS);
 const SUBMIT_RESET_DELAY = 3000;
 
-const ContactForm = () => {
+const copy = {
+  es: {
+    formTitle: "Formulario",
+    formDescription: "Completa los campos y te respondemos para continuar la consulta.",
+    name: "Nombre",
+    email: "Correo Electronico",
+    phone: "Telefono",
+    message: "Mensaje",
+    placeholderName: "Tu nombre",
+    placeholderEmail: "tuemail@dominio.com",
+    placeholderPhone: "Tu telefono (opcional)",
+    placeholderMessage: "Contanos brevemente tu consulta",
+    submit: "Enviar consulta",
+    submitting: "Enviando...",
+    success: "Se ha enviado tu correo satisfactoriamente",
+    fallbackError: "No se pudo enviar. Revisa los campos marcados e intenta de nuevo.",
+  },
+  en: {
+    formTitle: "Form",
+    formDescription: "Complete the fields and we will reply to continue with your inquiry.",
+    name: "Name",
+    email: "Email",
+    phone: "Phone",
+    message: "Message",
+    placeholderName: "Your name",
+    placeholderEmail: "youremail@domain.com",
+    placeholderPhone: "Your phone (optional)",
+    placeholderMessage: "Tell us briefly about your inquiry",
+    submit: "Send inquiry",
+    submitting: "Sending...",
+    success: "Your message was sent successfully",
+    fallbackError: "Unable to send. Check the highlighted fields and try again.",
+  },
+};
+
+const ContactForm = ({ locale = "es" }) => {
   const [message, setMessage] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [fieldErrors, setFieldErrors] = useState({});
   const hideMessageTimeoutRef = useRef(null);
+  const t = copy[locale] || copy.es;
 
   useEffect(() => {
     return () => {
@@ -51,7 +87,7 @@ const ContactForm = () => {
 
       setFieldErrors(nextFieldErrors);
 
-      const fallbackMessage = "No se pudo enviar. Revisá los campos marcados e intentá de nuevo.";
+      const fallbackMessage = t.fallbackError;
       const firstApiMessage = errors[0]?.message;
       setMessage(firstApiMessage ? `${fallbackMessage} ${firstApiMessage}` : fallbackMessage);
       setShowMessage(true);
@@ -64,7 +100,7 @@ const ContactForm = () => {
         }
       }
     } else {
-      setMessage("Se ha enviado tu correo satisfactoriamente");
+      setMessage(t.success);
       event.target.reset();
       setFieldErrors({});
       setShowMessage(true);
@@ -89,9 +125,9 @@ const ContactForm = () => {
       className="relative w-full max-w-2xl mx-auto"
     >
       <header className="border-b border-[var(--border)] px-4 py-4 md:px-6 md:py-5">
-        <p className="mono-ui text-xs text-[var(--muted)] mb-2">Formulario</p>
+        <p className="mono-ui text-xs text-[var(--muted)] mb-2">{t.formTitle}</p>
         <p className="text-sm text-[var(--muted)]">
-          Completa los campos y te respondemos para continuar la consulta.
+          {t.formDescription}
         </p>
       </header>
 
@@ -102,7 +138,7 @@ const ContactForm = () => {
           className="mono-ui block text-[var(--muted)] text-xs"
           htmlFor="name"
         >
-          Nombre
+          {t.name}
         </label>
         <input
           type="text"
@@ -111,7 +147,7 @@ const ContactForm = () => {
           aria-invalid={Boolean(fieldErrors.name)}
           aria-describedby={fieldErrors.name ? "name-error" : undefined}
           autoComplete="name"
-          placeholder="Tu nombre"
+          placeholder={t.placeholderName}
           className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base"
           required
         />
@@ -128,7 +164,7 @@ const ContactForm = () => {
             className="mono-ui block text-[var(--muted)] text-xs"
             htmlFor="email"
           >
-            Correo Electronico
+            {t.email}
           </label>
           <input
             type="email"
@@ -138,7 +174,7 @@ const ContactForm = () => {
             aria-describedby={fieldErrors.email ? "email-error" : undefined}
             autoComplete="email"
             spellCheck={false}
-            placeholder="tuemail@dominio.com"
+            placeholder={t.placeholderEmail}
             className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base"
             required
           />
@@ -154,7 +190,7 @@ const ContactForm = () => {
             className="mono-ui block text-[var(--muted)] text-xs"
             htmlFor="phone"
           >
-            Telefono
+            {t.phone}
           </label>
           <input
             type="tel"
@@ -164,7 +200,7 @@ const ContactForm = () => {
             aria-describedby={fieldErrors.phone ? "phone-error" : undefined}
             autoComplete="tel"
             inputMode="tel"
-            placeholder="Tu telefono (opcional)"
+            placeholder={t.placeholderPhone}
             className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base"
           />
           {fieldErrors.phone && (
@@ -180,7 +216,7 @@ const ContactForm = () => {
           className="mono-ui block text-[var(--muted)] text-xs"
           htmlFor="message"
         >
-          Mensaje
+          {t.message}
         </label>
         <textarea
           id="message"
@@ -188,7 +224,7 @@ const ContactForm = () => {
           aria-invalid={Boolean(fieldErrors.message)}
           aria-describedby={fieldErrors.message ? "message-error" : undefined}
           autoComplete="off"
-          placeholder="Contanos brevemente tu consulta"
+          placeholder={t.placeholderMessage}
           className="w-full px-3 py-3 border border-[var(--border)] bg-[var(--panel-strong)] text-[var(--text)] text-sm md:text-base min-h-[140px]"
           rows="5"
           maxLength="300"
@@ -209,7 +245,7 @@ const ContactForm = () => {
           disabled={isSubmitting}
           className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full sm:w-[240px] m-0 px-4 py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
         >
-          {isSubmitting ? "Enviando…" : "Enviar consulta"}
+          {isSubmitting ? t.submitting : t.submit}
         </button>
       </footer>
 
