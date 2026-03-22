@@ -17,6 +17,10 @@ export const metadata = createPageMetadata({
   keywords: ["taller de luthería", "proceso artesanal", "fabricación de guitarras"],
 });
 
+const CARD_CLASS = "group relative overflow-hidden bg-[var(--panel)]";
+const CARD_IMAGE_CLASS =
+  "object-cover grayscale transition duration-700 ease-out group-hover:grayscale-0 group-hover:scale-[1.06]";
+
 export default function Taller() {
   return (
     <>
@@ -27,71 +31,87 @@ export default function Taller() {
           title="El Taller"
           description="Mirá herramientas, espacio de trabajo y escenas reales del proceso artesanal diario."
         />
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-4 p-4 lg:p-4">
-          <Image
-            src={tallerDos}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl "
-          />
-        </figure>
+        <section className="col-span-6 bg-[var(--panel)] border border-[var(--border)] p-0">
+          <div className="grid grid-cols-12 gap-px bg-[var(--border)]">
+            <aside className="hidden lg:block col-span-1 bg-[var(--panel)] dot-grid-surface" aria-hidden="true" />
 
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-2 flex justify-center align-middle p-4 lg:p-4">
-          <Image
-            src={tallerTres}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl object-fit"
-          />
-        </figure>
+            <div className="col-span-12 lg:col-span-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-10 lg:auto-rows-[180px] gap-px bg-[var(--border)]">
+              <figure className={`${CARD_CLASS} h-[320px] md:h-[380px] lg:h-auto lg:col-span-6 lg:row-span-2`}>
+                <Image
+                  src={tallerDos}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 62vw, (min-width: 768px) 50vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 to-transparent" />
+              </figure>
 
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4 lg:p-4">
-          <Image
-            src={tallerCuatro}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl"
-          />
-        </figure>
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4 lg:p-4">
-          <Image
-            src={tallerCinco}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl"
-          />
-        </figure>
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4 lg:p-4">
-          <Image
-            src={tallerSeis}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl"
-          />
-        </figure>
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-2 lg:flex justify-center align-middle p-4 lg:p-4 hidden">
-          <Image
-            src={tallerSiete}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl"
-          />
-        </figure>
-        <figure className="animate content-auto bg-[var(--panel)] border border-[var(--border)] col-span-4 p-4 lg:p-4">
-          <Image
-            src={tallerOcho}
-            alt="Imagen del taller de luthería"
-            width={1000}
-            height={600}
-            className="rounded-xl "
-          />
-        </figure>
+              <figure className={`${CARD_CLASS} h-[220px] md:h-[250px] lg:h-auto lg:col-span-2`}>
+                <Image
+                  src={tallerTres}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, (min-width: 768px) 50vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+              </figure>
+
+              <figure className={`${CARD_CLASS} h-[220px] md:h-[250px] lg:h-auto lg:col-span-2`}>
+                <Image
+                  src={tallerCuatro}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, (min-width: 768px) 50vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+              </figure>
+
+              <figure className={`${CARD_CLASS} h-[220px] md:h-[250px] lg:h-auto lg:col-span-2`}>
+                <Image
+                  src={tallerCinco}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, (min-width: 768px) 50vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+              </figure>
+
+              <figure className={`${CARD_CLASS} h-[220px] md:h-[250px] lg:h-auto lg:col-span-2`}>
+                <Image
+                  src={tallerSeis}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 20vw, (min-width: 768px) 50vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+              </figure>
+
+              <figure className={`${CARD_CLASS} h-[220px] md:h-[250px] lg:h-auto lg:col-span-3`}>
+                <Image
+                  src={tallerSiete}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 38vw, (min-width: 768px) 50vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+              </figure>
+
+              <figure className={`${CARD_CLASS} h-[240px] md:h-[300px] lg:h-auto lg:col-span-7`}>
+                <Image
+                  src={tallerOcho}
+                  alt="Imagen del taller de luthería"
+                  fill
+                  sizes="(min-width: 1024px) 70vw, (min-width: 768px) 100vw, 100vw"
+                  className={`${CARD_IMAGE_CLASS} object-center`}
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/45 to-transparent" />
+              </figure>
+            </div>
+
+            <aside className="hidden lg:block col-span-1 bg-[var(--panel)] dot-grid-surface" aria-hidden="true" />
+          </div>
+        </section>
       </section>
     </>
   );

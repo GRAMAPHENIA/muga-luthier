@@ -67,9 +67,9 @@ export default function HomeEn() {
       <Header locale="en" />
       <Body locale="en" />
       <MagicRibbon locale="en" />
-      <Instrumentos locale="en" />
-      <Reparaciones locale="en" />
       <Galeria locale="en" />
+      <Reparaciones locale="en" />
+      <Instrumentos locale="en" />
       <HeaderTestimonios locale="en" />
       <Comentarios />
       <Contactos locale="en" />

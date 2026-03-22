@@ -20,9 +20,9 @@ const copy = {
     waLabel: "Abrir chat de WhatsApp",
     mailLabel: "Enviar correo a Di Corato Luthier",
     homeLabel: "Volver al inicio",
-    section: "Seccion",
+    section: "Sección",
     title: "Contacto",
-    description: "Escribi tu consulta y recibi una respuesta para coordinar el siguiente paso.",
+    description: "Escribí tu consulta y recibí una respuesta para coordinar el siguiente paso.",
   },
   en: {
     igLabel: "Open Di Corato Luthier Instagram",

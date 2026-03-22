@@ -4,17 +4,17 @@ import { MagicCard } from "@/components/ui/magic-card";
 export default function Testimonios({ testimonio }) {
   return (
     <>
-      <div className="seamless-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--border)] border border-[var(--border)]">
         {testimonio.map((testimonio, index) => (
           <BlurFade
             key={testimonio.img || `${testimonio.author}-${index}`}
             inView
             delay={Math.min(index * 0.05, 0.24)}
             offset={10}
-            className="h-full bg-[var(--panel)] content-auto"
+            className="h-full w-full bg-[var(--panel)] content-auto"
           >
             <MagicCard
-              className="h-full border-0"
+              className="h-full w-full border-0 no-inner-border"
               gradientSize={180}
               gradientOpacity={0.18}
               gradientColor="rgba(0, 255, 225, 0.35)"
@@ -46,6 +46,19 @@ export default function Testimonios({ testimonio }) {
             </MagicCard>
           </BlurFade>
         ))}
+
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-1/2 hidden md:block lg:hidden w-px bg-[var(--border)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-1/3 hidden lg:block w-px bg-[var(--border)]"
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-y-0 left-2/3 hidden lg:block w-px bg-[var(--border)]"
+        />
       </div>
     </>
   );

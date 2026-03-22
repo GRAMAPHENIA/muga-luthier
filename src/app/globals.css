@@ -41,7 +41,10 @@ html {
 
 body {
   color: var(--text);
-  background: radial-gradient(circle at top, #0a0c10 0%, var(--bg) 45%);
+  background:
+    radial-gradient(circle at top, #0a0c10 0%, var(--bg) 45%),
+    radial-gradient(circle, rgba(124, 129, 139, 0.16) 0.8px, transparent 0.8px);
+  background-size: auto, 14px 14px;
   font-family: var(--font-manrope), sans-serif;
   margin: 0 auto;
   width: 1080px;
@@ -142,6 +145,18 @@ textarea:focus-visible {
 }
 
 .seamless-grid-no-top {
+  border-top: 0 !important;
+}
+
+.seamless-grid + .seamless-grid {
+  border-top: 0 !important;
+}
+
+:is(section, header, footer, div) + section.seamless-grid {
+  border-top: 0 !important;
+}
+
+:is(section, header, footer, div) + div > section.seamless-grid:first-child {
   border-top: 0 !important;
 }
 
@@ -473,6 +488,10 @@ section[class*="grid"] > div {
   background: var(--panel);
 }
 
+.no-inner-border {
+  border: 0 !important;
+}
+
 .magic-card-lite-content {
   position: relative;
   z-index: 3;
@@ -510,6 +529,11 @@ section[class*="grid"] > div {
   opacity: calc(var(--magic-card-overlay-opacity, 0.8) * 0.5);
   filter: blur(56px) saturate(98%);
   transform: scale(1.05);
+}
+
+.dot-grid-surface {
+  background-image: radial-gradient(circle, rgba(124, 129, 139, 0.28) 0.8px, transparent 0.8px);
+  background-size: 12px 12px;
 }
 
 .content-auto {

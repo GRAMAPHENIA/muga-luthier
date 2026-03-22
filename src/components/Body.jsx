@@ -1,5 +1,6 @@
 import Aside from "@/components/Aside";
 import Presentacion from "@/components/Presentacion";
+import { MagicCard } from "@/components/ui/magic-card";
 
 export default function Body({ locale = "es" }) {
   return (
@@ -8,7 +9,16 @@ export default function Body({ locale = "es" }) {
         <Presentacion locale={locale} />
       </figure>
       <aside className="p-4 lg:col-start-3 lg:col-end-6 bg-[var(--panel)] border border-b-0 border-[var(--border)] lg:min-h-[340px]">
-        <Aside />
+        <MagicCard
+          className="h-full w-full border-0 no-inner-border"
+          gradientSize={170}
+          gradientOpacity={0.12}
+          gradientColor="rgba(0, 255, 225, 0.22)"
+          gradientFrom="var(--accent)"
+          gradientTo="#7c818b"
+        >
+          <Aside locale={locale} />
+        </MagicCard>
       </aside>
     </section>
   );

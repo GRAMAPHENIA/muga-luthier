@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const copy = {
   es: {
-    empty: "Esta galeria no tiene imagenes disponibles.",
+    empty: "Esta galería no tiene imágenes disponibles.",
     previous: "Imagen anterior",
     next: "Imagen siguiente",
     goTo: "Ir a la imagen",

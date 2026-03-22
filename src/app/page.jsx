@@ -62,9 +62,9 @@ export default function Home() {
       <Header />
       <Body />
       <MagicRibbon />
-      <Instrumentos />
-      <Reparaciones />
       <Galeria />
+      <Reparaciones />
+      <Instrumentos />
       <HeaderTestimonios />
       <Comentarios />
       <Contactos />

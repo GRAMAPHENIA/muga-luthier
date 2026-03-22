@@ -7,7 +7,7 @@ export default function BodyBuconero({ locale = "es" }) {
     <section id="galeria" className="animate w-full grid lg:grid-cols-5 my-2 seamless-grid seamless-grid-no-top">
       <aside className="order-2 lg:order-1 lg:col-start-1 lg:col-end-4 bg-[var(--panel)] border border-[var(--border)] lg:min-h-[320px]">
         <MagicCard
-          className="h-full border-0"
+          className="h-full border-0 no-inner-border"
           gradientSize={170}
           gradientOpacity={0.12}
           gradientColor="rgba(0, 255, 225, 0.22)"

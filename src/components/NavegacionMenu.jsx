@@ -6,9 +6,9 @@ import { localizeHref } from "@/lib/i18n";
 
 const copy = {
   es: {
-    aria: "Menu principal",
+    aria: "Menú principal",
     home: "Inicio",
-    gallery: "Galeria",
+    gallery: "Galería",
     instruments: "Instrumentos",
     repairs: "Reparaciones",
     about: "Acerca de",

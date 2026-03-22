@@ -2,7 +2,7 @@ import PageIntroHeader from "@/components/PageIntroHeader";
 
 const copy = {
   es: {
-    section: "Seccion",
+    section: "Sección",
     title: "Testimonios",
     description: "Opiniones de clientes sobre procesos, reparaciones y construcciones del taller.",
   },

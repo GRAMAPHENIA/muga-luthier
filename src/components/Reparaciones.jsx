@@ -1,15 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import PageIntroHeader from "@/components/PageIntroHeader";
 import { MagicCard } from "@/components/ui/magic-card";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { localizeHref } from "@/lib/i18n";
 
-import LogoApellido from "/public/croquis/herramientas.svg";
-
 const copy = {
   es: {
-    section: "Seccion",
+    section: "Sección",
     title: "Reparaciones",
     description:
       "Agenda ajustes, calibraciones y restauraciones para recuperar sonido, tacto y estabilidad.",
@@ -26,6 +23,10 @@ const copy = {
 
 export default function Reparaciones({ locale = "es" }) {
   const t = copy[locale] || copy.es;
+  const detailAlt =
+    locale === "en"
+      ? "Close-up detail of guitar repair work"
+      : "Detalle en primer plano de trabajos de reparación";
 
   return (
     <>
@@ -46,9 +47,9 @@ export default function Reparaciones({ locale = "es" }) {
             </Link>
           </section>
         </figure>
-        <aside className="flex justify-center align-middle lg:col-start-3 lg:col-end-6 bg-[var(--panel)] border border-[var(--border)] lg:min-h-[320px]">
+        <aside className="flex justify-center align-middle lg:col-start-3 lg:col-end-6 bg-[var(--panel)] border border-[var(--border)] lg:min-h-[320px] py-4 px-0">
           <MagicCard
-            className="h-full w-full border-0"
+            className="h-full w-full border-0 no-inner-border"
             gradientSize={170}
             gradientOpacity={0.12}
             gradientColor="rgba(0, 255, 225, 0.22)"
@@ -56,13 +57,22 @@ export default function Reparaciones({ locale = "es" }) {
             gradientTo="#7c818b"
           >
             <BlurFade inView delay={0.1} offset={12} className="flex h-full items-center justify-center">
-              <Image
-                width={380}
-                height={270}
-                src={LogoApellido}
-                alt="Logo"
-                className="my-8 md:my-10 w-full h-auto max-w-[280px] max-h-[200px] md:max-w-[340px] md:max-h-[240px] lg:max-w-[380px] lg:max-h-[270px] px-6 md:px-8 rotate-90"
-              ></Image>
+              <figure
+                aria-label={detailAlt}
+                role="img"
+                className="relative w-full min-h-[280px] h-[300px] md:h-[360px] lg:h-[420px] overflow-hidden py-4"
+              >
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: 'url("/croquis/svgs/03.svg")',
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "58% 32%",
+                    backgroundSize: "180%",
+                  }}
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/5 via-transparent to-black/20" />
+              </figure>
             </BlurFade>
           </MagicCard>
         </aside>

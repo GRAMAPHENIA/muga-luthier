@@ -20,7 +20,7 @@ export default function LanguageSwitcher() {
             ? "bg-[var(--panel-strong)] text-[var(--accent)]"
             : "bg-[var(--panel)] text-[var(--muted)] hover:text-[var(--accent)]"
         }`}
-        aria-label="Cambiar idioma a espanol"
+        aria-label="Cambiar idioma a español"
       >
         ES
       </Link>

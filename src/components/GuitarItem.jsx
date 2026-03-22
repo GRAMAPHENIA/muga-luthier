@@ -6,14 +6,15 @@ import dynamic from "next/dynamic";
 
 const copy = {
   es: {
-    loading: "Cargando galeria...",
+    loading: "Cargando galería...",
     fallbackInstrument: "Instrumento",
-    closeExpanded: "Cerrar galeria ampliada",
-    closeGallery: "Cerrar galeria de",
+    closeExpanded: "Cerrar galería ampliada",
+    closeGallery: "Cerrar galería de",
     close: "Cerrar",
-    loadingGallery: "Cargando galeria",
-    openGallery: "Abrir galeria de",
-    galleryOf: "Galeria de",
+    loadingGallery: "Cargando galería",
+    openGallery: "Abrir galería de",
+    galleryOf: "Galería de",
+    openCard: "Ver modelo",
   },
   en: {
     loading: "Loading gallery...",
@@ -24,6 +25,7 @@ const copy = {
     loadingGallery: "Loading gallery",
     openGallery: "Open gallery of",
     galleryOf: "Gallery of",
+    openCard: "View model",
   },
 };
 
@@ -133,7 +135,7 @@ const Modal = ({ modelTitle, galleryImages, onClose, locale = "es" }) => {
   );
 };
 
-const GuitarItem = ({ guitar, locale = "es" }) => {
+const GuitarItem = ({ guitar, locale = "es", index = 0 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoadingGallery, setIsLoadingGallery] = useState(false);
   const t = copy[locale] || copy.es;
@@ -156,14 +158,22 @@ const GuitarItem = ({ guitar, locale = "es" }) => {
   }, []);
 
   const { titulo, foto_de_portada } = guitar;
+  const isEven = index % 2 === 0;
+  const isPiccolina = titulo.toLowerCase().includes("piccolina");
+  const motionClass = isPiccolina
+    ? "transition duration-700 ease-out -scale-x-100 group-hover:-scale-x-[1.06] group-hover:scale-y-[1.06]"
+    : "transition duration-700 ease-out group-hover:scale-[1.06]";
 
   return (
     <>
-      <section className="relative group bg-[var(--panel)] min-w-0 content-auto">
+      <section
+        className="relative group bg-[var(--panel)] min-w-0 h-full"
+        style={{ animationDelay: `${Math.min(index * 70, 360)}ms` }}
+      >
         <button
           type="button"
           aria-label={`${t.openGallery} ${titulo}`}
-          className="w-full overflow-hidden relative flex items-center hover:text-[var(--accent)] bg-[var(--panel)] hover:bg-[var(--panel-strong)] cursor-pointer"
+          className="block w-full overflow-hidden relative bg-[var(--panel)] hover:bg-[var(--panel-strong)] cursor-pointer text-left"
           onClick={openModal}
           onMouseEnter={() => {
             preloadSlider();
@@ -174,18 +184,33 @@ const GuitarItem = ({ guitar, locale = "es" }) => {
             preloadGallery();
           }}
         >
-          <Image
-            className="absolute -left-6 w-24 h-24 rounded-full shadow-lg border-4 border-white/10"
-            src={foto_de_portada}
-            alt={titulo}
-            width={96}
-            height={96}
-            loading="lazy"
-          />
-          <div className="flex min-w-0 flex-col py-5 pl-24 text-left">
-            <strong className="text-lg font-light text-[var(--muted)] group-hover:text-[var(--accent)]">
-              {titulo}
-            </strong>
+          <div className="relative h-[230px] md:h-[250px] overflow-hidden">
+            <Image
+              className={`h-full w-full object-cover grayscale group-hover:grayscale-0 ${motionClass} ${
+                isEven ? "object-[50%_45%]" : "object-[50%_55%]"
+              }`}
+              src={foto_de_portada}
+              alt={titulo}
+              fill
+              sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/5 to-transparent" />
+            <div className="absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-xl transition duration-700 ease-out group-hover:left-[120%]" />
+            <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/30 backdrop-blur-md px-3 py-2 md:px-4 md:py-3 flex items-center justify-between gap-3 shadow-[0_-8px_18px_rgba(0,0,0,0.35)]">
+              <strong className="min-w-0 flex-1 truncate text-base md:text-lg font-light text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] group-hover:text-[var(--accent)] transition-colors duration-300">
+                {titulo}
+              </strong>
+              <span
+                aria-hidden="true"
+                className="shrink-0 inline-flex items-center justify-center text-white/90 group-hover:text-[var(--accent)] transition-colors duration-300"
+              >
+                <svg viewBox="0 0 20 20" className="w-4 h-4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 14L14 6M7 6H14V13" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                <span className="sr-only">{t.openCard}</span>
+              </span>
+            </div>
           </div>
         </button>
       </section>

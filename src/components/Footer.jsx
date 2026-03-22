@@ -8,19 +8,22 @@ const copy = {
   es: {
     sections: [
       {
-        title: "Navegacion",
+        title: "Navegación",
         links: [
           { title: "Inicio", url: "/" },
-          { title: "Modelos", url: "/#modelos" },
-          { title: "Galeria", url: "/#galeria" },
-          { title: "Contacto", url: "/#contacto" },
+          { title: "Galería", url: "/galeria" },
+          { title: "Instrumentos", url: "/instrumentos" },
+          { title: "Reparaciones", url: "/reparaciones" },
+          { title: "Acerca de", url: "/acerca-de" },
+          { title: "Taller", url: "/taller" },
+          { title: "Contacto", url: "/#contactos" },
         ],
       },
       {
         title: "Servicios",
         links: [
-          { title: "Construcciones", url: "/#contactos" },
-          { title: "Reparaciones", url: "/#reparaciones" },
+          { title: "Construcciones", url: "/instrumentos" },
+          { title: "Reparaciones", url: "/reparaciones" },
         ],
       },
       {
@@ -35,8 +38,8 @@ const copy = {
       },
     ],
     blurb:
-      "Instrumentos de autor, reparaciones y trabajo artesanal enfocado en sonido, tocabilidad y durabilidad.",
-    cta: "Escribi tu consulta",
+      "Instrumentos de autor, reparaciones y trabajo artesanal enfocado en sonido, tacto y durabilidad.",
+    cta: "Escribí tu consulta",
   },
   en: {
     sections: [
@@ -44,16 +47,19 @@ const copy = {
         title: "Navigation",
         links: [
           { title: "Home", url: "/" },
-          { title: "Models", url: "/#modelos" },
-          { title: "Gallery", url: "/#galeria" },
-          { title: "Contact", url: "/#contacto" },
+          { title: "Gallery", url: "/galeria" },
+          { title: "Instruments", url: "/instrumentos" },
+          { title: "Repairs", url: "/reparaciones" },
+          { title: "About", url: "/acerca-de" },
+          { title: "Workshop", url: "/taller" },
+          { title: "Contact", url: "/#contactos" },
         ],
       },
       {
         title: "Services",
         links: [
-          { title: "Custom builds", url: "/#contactos" },
-          { title: "Repairs", url: "/#reparaciones" },
+          { title: "Custom builds", url: "/instrumentos" },
+          { title: "Repairs", url: "/reparaciones" },
         ],
       },
       {

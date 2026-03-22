@@ -11,12 +11,12 @@ const copy = {
     formTitle: "Formulario",
     formDescription: "Completa los campos y te respondemos para continuar la consulta.",
     name: "Nombre",
-    email: "Correo Electronico",
-    phone: "Telefono",
+    email: "Correo Electrónico",
+    phone: "Teléfono",
     message: "Mensaje",
     placeholderName: "Tu nombre",
     placeholderEmail: "tuemail@dominio.com",
-    placeholderPhone: "Tu telefono (opcional)",
+    placeholderPhone: "Tu teléfono (opcional)",
     placeholderMessage: "Contanos brevemente tu consulta",
     submit: "Enviar consulta",
     submitting: "Enviando...",
@@ -122,16 +122,16 @@ const ContactForm = ({ locale = "es" }) => {
       method="POST"
       onSubmit={handleSubmit}
       autoComplete="off"
-      className="relative w-full max-w-2xl mx-auto"
+      className="relative w-full max-w-2xl mx-auto bg-[var(--panel)]"
     >
-      <header className="border-b border-[var(--border)] px-4 py-4 md:px-6 md:py-5">
+      <header className="border-b border-[var(--border)] px-4 py-4 md:px-6 md:py-5 bg-[var(--panel)]">
         <p className="mono-ui text-xs text-[var(--muted)] mb-2">{t.formTitle}</p>
         <p className="text-sm text-[var(--muted)]">
           {t.formDescription}
         </p>
       </header>
 
-      <div className="px-4 py-5 md:px-6 md:py-7">
+      <div className="dot-grid-surface px-4 py-5 md:px-6 md:py-7">
 
       <div className="mb-4 space-y-2">
         <label
@@ -239,11 +239,11 @@ const ContactForm = ({ locale = "es" }) => {
 
       </div>
 
-      <footer className="border-t border-[var(--border)] flex justify-end">
+      <footer className="dot-grid-surface flex justify-end">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full sm:w-[240px] m-0 px-4 py-3 border border-[var(--border)] border-r-0 border-b-0 hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
+          className="detalles mono-ui inline-flex items-center justify-center text-sm text-[var(--text)] text-center w-full m-0 px-4 py-3 border border-[var(--border)] border-r-0 border-b-0 bg-[var(--panel)] hover:bg-[var(--panel-strong)] hover:text-[var(--accent)]"
         >
           {isSubmitting ? t.submitting : t.submit}
         </button>

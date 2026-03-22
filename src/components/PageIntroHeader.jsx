@@ -7,7 +7,7 @@ export default function PageIntroHeader({
   locale = "es",
   className = "",
 }) {
-  const effectiveKicker = kicker || (locale === "en" ? "Collection" : "Coleccion");
+  const effectiveKicker = kicker || (locale === "en" ? "Collection" : "Colección");
 
   return (
     <header

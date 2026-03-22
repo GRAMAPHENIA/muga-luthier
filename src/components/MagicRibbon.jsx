@@ -2,11 +2,11 @@ import { Marquee } from "@/components/ui/marquee";
 
 const tagsByLocale = {
   es: [
-    "Luthieria Artesanal",
+    "Luthería Artesanal",
     "Construcciones A Medida",
-    "Calibracion Profesional",
+    "Calibración Profesional",
     "Maderas Recuperadas",
-    "Diseno De Autor",
+    "Diseño De Autor",
     "Reparaciones",
     "Setups Personalizados",
     "Hecho En Buenos Aires",
@@ -28,10 +28,10 @@ export default function MagicRibbon({ locale = "es" }) {
 
   return (
     <section className="grid my-2 seamless-grid seamless-grid-no-top">
-      <div className="relative overflow-hidden bg-[var(--panel)] py-3">
+      <div className="relative overflow-hidden bg-[var(--panel)] dot-grid-surface py-3">
         <Marquee pauseOnHover className="[--duration:28s]">
           {tags.map((tag) => (
-            <span key={tag} className="chip-ui px-4 py-2 text-xs">
+            <span key={tag} className="chip-ui bg-[var(--panel)] px-4 py-2 text-xs">
               {tag}
             </span>
           ))}

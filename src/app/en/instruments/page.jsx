@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PageIntroHeader from "@/components/PageIntroHeader";
 
-import BuconeroHorz from "@/public/croquis/buconero-horz.svg";
-import VellutoHorz from "@/public/croquis/velluto-horz.webp";
-import EiraHorz from "@/public/croquis/eira-horz.webp";
+import Svg01 from "@/public/croquis/svgs/01.svg";
+import Svg02 from "@/public/croquis/svgs/02.svg";
+import Svg03 from "@/public/croquis/svgs/03.svg";
 
 import BuconeroTipografia from "@/public/instrumentos/buconero.svg";
 import VellutoTipografia from "@/public/instrumentos/velluto.svg";
@@ -35,7 +35,7 @@ export default function InstrumentsPage() {
           title="Instruments"
           description="Compare models, specs, and quick access to each complete technical sheet."
         />
-        <figure className="relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4">
+        <figure className="relative bg-[var(--panel)] dot-grid-surface border border-[var(--border)] col-span-2 p-4">
           <Image
             className="m-auto p-4 md:p-6"
             src={BuconeroTipografia}
@@ -46,7 +46,7 @@ export default function InstrumentsPage() {
         </figure>
         <figure className="relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-10 lg:py-10">
           <Image
-            src={BuconeroHorz}
+            src={Svg01}
             alt="Buconero model guitar by Esteban M. Di Corato"
             className="h-auto w-full p-4 md:p-6"
           />
@@ -57,7 +57,7 @@ export default function InstrumentsPage() {
             Open sheet
           </Link>
         </figure>
-        <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4">
+        <figure className="animate relative bg-[var(--panel)] dot-grid-surface border border-[var(--border)] col-span-2 p-4">
           <Image
             className="m-auto p-4 md:p-6"
             src={VellutoTipografia}
@@ -68,9 +68,10 @@ export default function InstrumentsPage() {
         </figure>
         <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-10 lg:p-10">
           <Image
-            src={VellutoHorz}
+            src={Svg02}
             alt="Velluto model guitar by Esteban M. Di Corato"
             className="h-auto w-full p-4 md:p-6"
+            style={{ transform: "scaleX(-1)" }}
           />
           <Link
             href="/en/instruments/velluto"
@@ -79,7 +80,7 @@ export default function InstrumentsPage() {
             Open sheet
           </Link>
         </figure>
-        <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4">
+        <figure className="animate relative bg-[var(--panel)] dot-grid-surface border border-[var(--border)] col-span-2 p-4">
           <Image
             className="m-auto p-4 md:p-6"
             src={EiraTipografia}
@@ -90,7 +91,7 @@ export default function InstrumentsPage() {
         </figure>
         <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-10 lg:p-10">
           <Image
-            src={EiraHorz}
+            src={Svg03}
             alt="Eira model guitar by Esteban M. Di Corato"
             className="h-auto w-full p-4 md:p-6"
           />

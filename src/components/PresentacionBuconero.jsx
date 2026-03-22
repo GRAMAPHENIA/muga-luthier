@@ -4,11 +4,11 @@ import { localizeHref } from "@/lib/i18n";
 
 const copy = {
   es: {
-    section: "Seccion",
-    title: "Galeria",
+    section: "Sección",
+    title: "Galería",
     description:
       "Recorre procesos reales del taller y resultados finales en cada instrumento terminado.",
-    cta: "Ver coleccion",
+    cta: "Ver colección",
   },
   en: {
     section: "Section",

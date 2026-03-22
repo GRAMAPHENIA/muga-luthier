@@ -18,9 +18,9 @@ const BLOCKED_SCROLL_KEYS = new Set([
 
 const copy = {
   es: {
-    openNav: "Abrir menu de navegacion",
-    closeNav: "Cerrar menu de navegacion",
-    title: "Menu principal",
+    openNav: "Abrir menú de navegación",
+    closeNav: "Cerrar menú de navegación",
+    title: "Menú principal",
     close: "Cerrar",
   },
   en: {

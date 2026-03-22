@@ -8,7 +8,7 @@ const testimoniosData = [
     img: "/miniaturas/comentarios/dilorenzo.webp",
   },
   {
-    comment: "Un lujoooo, sigan asi.",
+    comment: "Un lujoooo, sigan así.",
     author: "Martin Cioffi",
     img: "/miniaturas/comentarios/martin_cioffi.webp",
   },
@@ -24,7 +24,7 @@ const testimoniosData = [
   },
   {
     comment:
-      "Super recomendable, buena predisposición, la mejor onda, un grande Esteban!",
+      "Súper recomendable, buena predisposición, la mejor onda, un grande Esteban!",
     author: "Emiliano Foglia",
     img: "/miniaturas/comentarios/emilianofoglia.webp",
   },

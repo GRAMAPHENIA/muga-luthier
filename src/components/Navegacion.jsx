@@ -3,7 +3,7 @@ import { localizeHref } from "@/lib/i18n";
 
 const copy = {
   es: {
-    aria: "Navegacion principal",
+    aria: "Navegación principal",
     home: "Inicio",
     instruments: "Instrumentos",
     repairs: "Reparaciones",

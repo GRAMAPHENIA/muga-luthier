@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Esteban from "/public/croquis/esteban.svg";
+import AcercaDeImage from "/public/acercade.webp";
 import Isotipo from "@/public/isotipo.svg";
 import PageIntroHeader from "@/components/PageIntroHeader";
 import { createPageMetadata } from "@/lib/seo";
@@ -28,14 +28,34 @@ export default function AboutEn() {
           title="About"
           description="Discover the luthier's journey and vision behind each construction decision."
         />
-        <figure className="flex flex-col align-middle items-center justify-center lg:col-start-1 lg:col-end-5 bg-[var(--panel)] border border-[var(--border)] w-full p-12 lg:p-20">
-          <Image width={150} height={150} src={Isotipo} alt="Isotype" className="lg:px-4 pb-4" />
-          <p className="text-center lg:text-2xl font-extralight text-[#7d8c9d] mb-10 lg:mx-40">
-            In the mid-90s I became curious about building guitars and basses. Through different
-            training paths, I consolidated my knowledge and hands-on experience. In 2010, I decided
-            to launch Di Corato string instruments.
-          </p>
-          <Image width={600} height={250} src={Esteban} alt="Signature" className="lg:px-4 opacity-50" />
+        <figure className="lg:col-start-1 lg:col-end-5 bg-[var(--panel)] border border-[var(--border)] w-full p-0">
+          <div className="grid grid-cols-12 gap-px bg-[var(--border)] w-full">
+            <aside className="hidden lg:block col-span-1 bg-[var(--panel)] dot-grid-surface" aria-hidden="true" />
+
+            <div className="col-span-12 lg:col-span-10 grid grid-cols-1 gap-px bg-[var(--border)]">
+              <div className="bg-[var(--panel)] flex items-center justify-center p-8 lg:p-10">
+                <Image width={150} height={150} src={Isotipo} alt="Isotype" className="block" />
+              </div>
+
+              <div className="bg-[var(--panel)] px-8 py-10 lg:px-16 lg:py-14">
+                <p className="text-center lg:text-2xl font-extralight text-[#7d8c9d]">
+                  In the mid-90s I became curious about building guitars and basses. Through different
+                  training paths, I consolidated my knowledge and hands-on experience. In 2010, I decided
+                  to launch Di Corato string instruments.
+                </p>
+              </div>
+
+              <div className="bg-[var(--panel)] p-0">
+                <Image
+                  src={AcercaDeImage}
+                  alt="Luthier working at the workshop bench"
+                  className="block w-full h-auto"
+                />
+              </div>
+            </div>
+
+            <aside className="hidden lg:block col-span-1 bg-[var(--panel)] dot-grid-surface" aria-hidden="true" />
+          </div>
         </figure>
       </section>
     </>

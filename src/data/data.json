@@ -2,7 +2,7 @@
   {
     "id": "0",
     "titulo": "Imperatrice zebrano",
-    "descripcion": "Esta es la descripcion",
+    "descripcion": "Esta es la descripción",
     "foto_de_portada": "/miniaturas/impertrice-custom-zebrano.webp",
     "galeria": [
       { "url": "/slider/imperatricecustomzebrano/a.webp", "title": "" },
@@ -15,7 +15,7 @@
   },
   {
     "id": "1",
-    "titulo": "Buconero Standart",
+    "titulo": "Buconero Standard",
     "descripcion": "",
     "foto_de_portada": "/miniaturas/buconero-standart.webp",
     "galeria": [
@@ -29,7 +29,7 @@
   },
   {
     "id": "2",
-    "titulo": "Eira Standart",
+    "titulo": "Eira Standard",
     "descripcion": "",
     "foto_de_portada": "/miniaturas/eira-standart.webp",
     "galeria": [
@@ -43,7 +43,7 @@
   },
   {
     "id": "3",
-    "titulo": "Velluto Standart",
+    "titulo": "Velluto Standard",
     "descripcion": "",
     "foto_de_portada": "/miniaturas/velluto-standart.webp",
     "galeria": [
@@ -85,7 +85,7 @@
   },
   {
     "id": "6",
-    "titulo": "Clasica II",
+    "titulo": "Clásica II",
     "descripcion": "",
     "foto_de_portada": "/miniaturas/clasica-dos.webp",
     "galeria": [
@@ -158,7 +158,7 @@
   },
   {
     "id": "11",
-    "titulo": "Clasica II",
+    "titulo": "Clásica II",
     "descripcion": "",
     "foto_de_portada": "/miniaturas/clasica-dos-dos.webp",
     "galeria": [
@@ -197,7 +197,7 @@
   },
   {
     "id": "14",
-    "titulo": "Velluto AR clasic",
+    "titulo": "Velluto AR Classic",
     "descripcion": "",
     "foto_de_portada": "/miniaturas/velluto-clasica.webp",
     "galeria": [

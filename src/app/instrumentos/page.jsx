@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import PageIntroHeader from "@/components/PageIntroHeader";
 
-import BuconeroHorz from "@/public/croquis/buconero-horz.svg";
-import VellutoHorz from "@/public/croquis/velluto-horz.webp";
-import EiraHorz from "@/public/croquis/eira-horz.webp";
+import Svg01 from "@/public/croquis/svgs/01.svg";
+import Svg02 from "@/public/croquis/svgs/02.svg";
+import Svg03 from "@/public/croquis/svgs/03.svg";
 
 import BuconeroTipografia from "@/public/instrumentos/buconero.svg";
 import VellutoTipografia from "@/public/instrumentos/velluto.svg";
@@ -29,7 +29,7 @@ export default function Buconero() {
           title="Instrumentos"
           description="Compará modelos, especificaciones y accesos directos a cada ficha técnica completa."
         />
-        <figure className="relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4">
+        <figure className="relative bg-[var(--panel)] dot-grid-surface border border-[var(--border)] col-span-2 p-4">
           {/* <p className=" text-3xl text-gray-400 font-thin">Modelo</p> */}
           <Image
             className="m-auto p-4 md:p-6"
@@ -41,7 +41,7 @@ export default function Buconero() {
         </figure>
         <figure className="relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-10 lg:py-10">
           <Image
-            src={BuconeroHorz}
+            src={Svg01}
             alt="Fotografía de una guitarra, modelo Buconero. Diseñada y fabricada por Esteban M. Di Corato."
             className="h-auto w-full p-4 md:p-6"
           />
@@ -52,7 +52,7 @@ export default function Buconero() {
             Abrí ficha
           </Link>
         </figure>
-        <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4">
+        <figure className="animate relative bg-[var(--panel)] dot-grid-surface border border-[var(--border)] col-span-2 p-4">
           {/* <p className=" text-3xl text-gray-400 font-thin">Modelo</p> */}
           <Image
             className="m-auto p-4 md:p-6"
@@ -64,9 +64,10 @@ export default function Buconero() {
         </figure>
         <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-10 lg:p-10">
           <Image
-            src={VellutoHorz}
+            src={Svg02}
             alt="Fotografía de una guitarra, modelo Velluto. Diseñada y fabricada por Esteban M. Di Corato."
             className="h-auto w-full p-4 md:p-6"
+            style={{ transform: "scaleX(-1)" }}
           />
           <Link
             href="/instrumentos/velluto"
@@ -75,7 +76,7 @@ export default function Buconero() {
             Abrí ficha
           </Link>
         </figure>
-        <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-4">
+        <figure className="animate relative bg-[var(--panel)] dot-grid-surface border border-[var(--border)] col-span-2 p-4">
           <Image
             className="m-auto p-4 md:p-6"
             src={EiraTipografia}
@@ -86,7 +87,7 @@ export default function Buconero() {
         </figure>
         <figure className="animate relative bg-[var(--panel)] border border-[var(--border)] col-span-2 p-10 lg:p-10">
           <Image
-            src={EiraHorz}
+            src={Svg03}
             alt="Fotografía de una guitarra, modelo Eira. Diseñada y fabricada por Esteban M. Di Corato."
             className="h-auto w-full p-4 md:p-6"
           />

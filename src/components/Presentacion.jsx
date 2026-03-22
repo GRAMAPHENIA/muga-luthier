@@ -4,7 +4,7 @@ const copy = {
   es: {
     title: "Recursos Nativos Y Maderas Recuperadas",
     description:
-      "Disenamos cada instrumento con enfoque sustentable, priorizando materiales recuperados y procesos de taller responsables con el entorno.",
+      "Diseñamos cada instrumento con enfoque sustentable, priorizando materiales recuperados y procesos de taller responsables con el entorno.",
   },
   en: {
     title: "Native Resources And Reclaimed Woods",
